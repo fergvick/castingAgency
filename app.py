@@ -1,20 +1,24 @@
 
-from flask_sqlalchemy import SQLAlchemy
-
 import os
-from flask import Flask, request, jsonify, abort
-from sqlalchemy import exc
+from flask import Flask, request, jsonify, abort, render_template
+from auth import AuthError, requires_auth
+from models import db_drop_and_create_all, setup_db, Actor, Movie
+
 import json
 from flask_cors import CORS
-
-from .database.models import db_drop_and_create_all, setup_db, Drink
-from .auth.auth import AuthError, requires_auth
 
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
 
+
+
 ## ROUTES
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 '''
 ENDPOINT
     GET /actors
@@ -24,6 +28,7 @@ ENDPOINT
 '''
 
 @app.route('/actors', methods=['GET'])
+@requires_auth('get:actors')
 def get_actors():
     try:
         actors = Actor.query.order_by(Actor.id).all()
@@ -44,6 +49,7 @@ ENDPOINT
 '''
 
 @app.route('/movies', methods=['GET'])
+@requires_auth('get:movies')
 def get_movies():
     try:
         movies = Movie.query.order_by(Movie.id).all()
