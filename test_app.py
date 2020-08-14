@@ -148,7 +148,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], 10)
+        self.assertEqual(data['deleted'], actor_id)
 
     """
     Test for failed DELETE request at /actors endpoint a actor that doesn't exist
@@ -263,7 +263,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], 10)
+        self.assertEqual(data['deleted'], actor_id)
 
     """
     Test for failed DELETE request at /movies endpoint a movie that doesn't exist

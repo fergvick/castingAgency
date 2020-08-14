@@ -93,7 +93,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'actors': [actor.format() for actor in actors]
-        })
+        }), 201
 
     '''
     ENDPOINT
@@ -122,7 +122,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'movies': [movie.format() for movie in movies]
-        })
+        }), 201
 
     '''
     ENDPOINT
@@ -158,7 +158,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'actors': [actor.format() for actor in actors]
-        })
+        }), 201
 
     '''
     ENDPOINT
@@ -191,7 +191,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'movies': [movie.format() for movie in movies]
-        })
+        }), 201
 
     '''
     ENDPOINT
@@ -216,7 +216,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'delete': actor.id
-        })
+        }), 200
 
     '''
     ENDPOINT
@@ -241,7 +241,7 @@ def create_app(test_config=None):
         return jsonify({
             'success': True,
             'delete': movie.id
-        })
+        }), 200
 
     ## Error Handling
 
