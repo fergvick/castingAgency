@@ -3,7 +3,7 @@ import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-from flaskr import create_app
+from app import create_app
 from models import setup_db, Actor, Movie
 from datetime import datetime
 
@@ -27,8 +27,8 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "test.db"
-        self.database_path = "postgres://{}/{}".format('localhost:5432', self.database_name)
+        self.database_name = "casting.db"
+        self.database_path = os.getenv('DATABASE_URL')
         setup_db(self.app, self.database_path)
 
 
@@ -47,7 +47,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
         self.new_movie = {
             'title': 'test movie',
-            'release_date': datetime.now()
+            'release_date': 230323
         }
 
     def tearDown(self):
@@ -268,8 +268,8 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'Unproccessable')
-	
-	"""
+
+    """
     Test for unauthorized DELETE request at /movies endpoint 
     """
     def test_delete_actors_unauthorized(self):
