@@ -88,7 +88,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         res = self.client().post('/actors', headers=set_auth_header('director'), json=self.new_actor)
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
 
     """
@@ -121,7 +121,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         res = self.app.patch(f'/actors/{actor_id}', headers=set_auth_header('director'), json=self.new_actor)
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
 
     """
@@ -203,7 +203,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         res = self.client().post('/movies', headers=set_auth_header('producer'), json=self.new_movie)
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
 
     """
@@ -236,7 +236,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         res = self.app.patch(f'/movies/{movie_id}', headers=set_auth_header('director'), json=self.new_movie)
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
 
     """
