@@ -33,9 +33,10 @@ def db_drop_and_create_all():
 Many to many between movies and actors
 
 '''
-movie_actor_relationship_table = Table('movie_actor_relationship_table', db.Model.metadata,
-                                       Column('movie_id', Integer, ForeignKey('movies.id')),
-                                       Column('actor_id', Integer, ForeignKey('actors.id')))
+movie_actor_relationship_table = Table('movie_actor_relationship_table',
+  Column('movie_id', Integer, ForeignKey('movies.id'), primary_key=True),
+  Column('actor_id', Integer, ForeignKey('actors.id'), primary_key=True)
+)
 
 '''
 Movie
