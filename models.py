@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine, Table, ForeignKey
+from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 from datetime import datetime
@@ -33,9 +33,9 @@ def db_drop_and_create_all():
 Many to many between movies and actors
 
 '''
-movie_actor_relationship_table = Table('movie_actor_relationship_table',
-  Column('movie_id', Integer, ForeignKey('movies.id'), primary_key=True),
-  Column('actor_id', Integer, ForeignKey('actors.id'), primary_key=True)
+movie_actor_relationship_table = db.Table('movie_actor_relationship_table',
+  db.Column('movie_id', db.Integer, db.ForeignKey('Movie.id'), primary_key=True),
+  db.Column('actor_id', db.Integer, db.ForeignKey('Actor.id'), primary_key=True)
 )
 
 '''
@@ -43,11 +43,11 @@ Movie
 
 '''
 class Movie(db.Model):  
-  __tablename__ = 'movies'
+  __tablename__ = 'Movie'
 
-  id = Column(Integer, primary_key=True)
-  title = Column(String(80), unique=True, nullable=False)
-  release_date = Column(Integer, nullable=False)
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String(80), unique=True, nullable=False)
+  release_date = db.Column(db.Integer, nullable=False)
 
   def __init__(self, title, release_date):
     self.title = title
@@ -76,14 +76,13 @@ Actor
 
 '''
 class Actor(db.Model):  
-  __tablename__ = 'actors'
+  __tablename__ = 'Actor'
 
-  id = Column(Integer, primary_key=True)
-  name = Column(String)
-  age = Column(Integer)
-  gender = Column(String)
-  movies = db.relationship('Movie', secondary=movie_actor_relationship_table,
-                             backref='movies_list', lazy=True)
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(80))
+  age = db.Column(db.Integer)
+  gender = db.Column(db.String)
+  movies = db.relationship('Movie', secondary=movie_actor_relationship_table, backref=db.backref('venues', lazy=True))
 
   def __init__(self, name, age, gender):
     self.name = name
