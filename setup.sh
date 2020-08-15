@@ -11,5 +11,4 @@ export PRODUCER_TOKEN='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ilc5bTVEM3FEQ
 export FLASK_APP=app 
 export FLASK_DEBUG=True
 # export DATABASE_URL='postgresql://victoria@localhost:5432/casting'
-export DATABASE_URL='postgres://snkljcpdwalgvg:09268410a1f491cfeac7ec6150a5c7cafd10f11bceee4f751161aebe883d68d5@ec2-184-72-162-198.compute-1.amazonaws.com:5432/d1gh16kqs0coa8'
 

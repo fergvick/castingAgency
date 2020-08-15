@@ -32,8 +32,8 @@ class CastingAgencyTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "d1gh16kqs0coa8.db"
-        self.database_path = 'postgres://snkljcpdwalgvg:09268410a1f491cfeac7ec6150a5c7cafd10f11bceee4f751161aebe883d68d5@ec2-184-72-162-198.compute-1.amazonaws.com:5432/d1gh16kqs0coa8'
+        self.database_name = "test.db"
+        self.database_path = 'postgres://snkljcpdwalgvg:09268410a1f491cfeac7ec6150a5c7cafd10f11bceee4f751161aebe883d68d5@ec2-184-72-162-198.compute-1.amazonaws.com:5432/'+self.database_name
         setup_db(self.app, self.database_path)
 
 
