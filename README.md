@@ -16,7 +16,7 @@ then
 
 ### Login Details
 To login or sign up for an account, go to the following URL;
-`https://udacity-casting-agency.eu.auth0.com/authorize?audience=casting-agency&response_type=token&client_id=LC7SXH3s1ZRzI0bAHzWnhSYFOagXN6ye&redirect_uri=http://127.0.0.1:5000/login`
+`https://udacity-casting-agency.eu.auth0.com/authorize?audience=casting-agency&response_type=token&client_id=LC7SXH3s1ZRzI0bAHzWnhSYFOagXN6ye&redirect_uri=http://127.0.0.1:5000`
 Then copy the JWT access_token to be used as a Bearer Authentication Token for API requests
 For each role these are the login details
 
