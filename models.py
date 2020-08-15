@@ -5,6 +5,7 @@ import json
 from datetime import datetime
 
 database_path = 'postgres://snkljcpdwalgvg:09268410a1f491cfeac7ec6150a5c7cafd10f11bceee4f751161aebe883d68d5@ec2-184-72-162-198.compute-1.amazonaws.com:5432/d1gh16kqs0coa8'
+# database_path = 'sqlite:///'
 
 db = SQLAlchemy()
 
