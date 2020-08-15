@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from datetime import datetime
 
-database_path = 'postgres://snkljcpdwalgvg:09268410a1f491cfeac7ec6150a5c7cafd10f11bceee4f751161aebe883d68d5@ec2-184-72-162-198.compute-1.amazonaws.com:5432/d1gh16kqs0coa8'
+database_path = 'postgres://swxayeqfonggry:338e4eb17b6dd460381b43cbfa8a38c0069fb2859a6f84f59c2cdb8e0e193fc7@ec2-34-204-22-76.compute-1.amazonaws.com:5432/d8qvbansrhno7g'
 # database_path = 'sqlite:///'
 
 db = SQLAlchemy()
