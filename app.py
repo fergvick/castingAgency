@@ -14,7 +14,7 @@ def create_app(test_config=None):
     CORS(app)
     migrate = Migrate(app)
 
-    db_drop_and_create_all()
+    # db_drop_and_create_all()
 
     # def format_datetime(value, format='medium'):
     #   date = dateutil.parser.parse(value)
